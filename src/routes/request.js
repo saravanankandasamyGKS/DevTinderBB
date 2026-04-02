@@ -22,7 +22,7 @@ requestRouter.post(
         });
       }
       //Status Check
-      const allowedStatuses = ["ignored", "intrested"];
+      const allowedStatuses = ["ignored", "interested"];
       if (!allowedStatuses.includes(status)) {
         throw new Error("Invalid status type:" + status);
       }
@@ -76,7 +76,7 @@ requestRouter.post(
       const connectionRequest = await ConnectionRequestModel.findOne({
         _id: requestId,
         toUserId: loggedInUser._id,
-        status: "intrested",
+        status: "interested",
       });
       if (!connectionRequest) {
         return res.status(404).json({
