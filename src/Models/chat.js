@@ -12,7 +12,7 @@ const messageSchema = new mongoose.Schema(
       required: true,
     },
   },
-  { timestamps: true },
+  { timestamps: true }
 );
 
 const chatSchema = new mongoose.Schema({
@@ -22,6 +22,8 @@ const chatSchema = new mongoose.Schema({
   messages: [messageSchema],
 });
 
-const Chat = mongoose.model("Chat", chatSchema);
+// ✅ FIX HERE
+const Chat =
+  mongoose.models.Chat || mongoose.model("Chat", chatSchema);
 
 module.exports = { Chat };
